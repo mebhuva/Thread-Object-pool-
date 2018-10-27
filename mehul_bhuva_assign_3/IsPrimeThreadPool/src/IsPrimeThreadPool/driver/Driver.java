@@ -1,7 +1,10 @@
 package IsPrimeThreadPool.driver;
 
+import IsPrimeThreadPool.threadutility.CreateWorker;
 import IsPrimeThreadPool.util.FileProcessor;
+import IsPrimeThreadPool.util.IsPrime;
 import IsPrimeThreadPool.util.MyLogger;
+import IsPrimeThreadPool.util.Results;
 
 public class Driver {
 
@@ -29,6 +32,12 @@ public class Driver {
 				System.err.println("Insert File not found");
 				System.exit(0);
 			}
+			if (! isInteger(args[1]))
+			{
+				System.err.println("NUM_THREADS Value shuld be a number");
+	            System.err.println("DEBUG_LEVEL : 0 - None, 1 - RESULTCONTENT, 2 - RESULTCONTENTUPDATED, 3 - THREADRUN, 4 - CONSTRUCTOR , 5 : EXCEPTION");
+	            System.exit(0);
+			}
 			if (! isInteger(args[2]))
 			{
 				System.err.println("Debug Value shuld be a number");
@@ -45,6 +54,12 @@ public class Driver {
 	                System.exit(0);
 	            }
 	            MyLogger.setDebugValue(debug_level);
+	            IsPrime IsPrimeObject = new IsPrime();
+	            Results ResultsObject = new Results();
+	            CreateWorker CreateWorkerObject = new CreateWorker(fp,IsPrimeObject,ResultsObject);
+	            CreateWorkerObject.workerProcessor(Integer.parseInt(args[1]));
+	            
+	            
 			}
 			
 			

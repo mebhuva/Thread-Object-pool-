@@ -14,9 +14,18 @@ import IsPrimeThreadPool.util.MyLogger.DebugLevel;
  *
  */
 public class FileProcessor {
+
 	private File input;
 	private BufferedReader Bfreader;
 
+	
+	/**
+	 * Default Constructor
+	 * 
+	 */
+	public FileProcessor() {
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * Constructor used to initialize input file object
 	 * 
