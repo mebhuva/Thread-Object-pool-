@@ -3,7 +3,7 @@ package IsPrimeThreadPool.util;
 public class MyLogger {
 	// FIXME: Add more enum values as needed for the assignment
 	public static enum DebugLevel {
-	       RESULTCONTENT , NONE , RESULTCONTENTUPDATED , THREADRUN
+		CONSTRUCTOR, RESULTCONTENT , NONE , EXCEPTION , RESULTCONTENTUPDATED , THREADRUN
 	};
 
 	private static DebugLevel debugLevel;
@@ -11,6 +11,12 @@ public class MyLogger {
 	// FIXME: Add switch cases for all the levels
 	public static void setDebugValue(int levelIn) {
 		switch (levelIn) {
+		case 5:
+            debugLevel = DebugLevel.EXCEPTION;
+            break;
+        case 4:
+            debugLevel = DebugLevel.CONSTRUCTOR; 
+            break;
 		case 3:
 			debugLevel = DebugLevel.THREADRUN;
 			break;
