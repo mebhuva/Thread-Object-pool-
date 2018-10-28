@@ -63,7 +63,7 @@ public class FileProcessor {
 	 * 
 	 * @return new line from input file.
 	 */
-	public String readLine() {
+	public synchronized String readLine() {
 		try {
 			String readLine = Bfreader.readLine();
 			return readLine;

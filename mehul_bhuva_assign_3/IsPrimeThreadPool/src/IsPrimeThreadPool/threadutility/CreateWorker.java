@@ -4,7 +4,9 @@ import java.util.ArrayList;
 
 import IsPrimeThreadPool.util.FileProcessor;
 import IsPrimeThreadPool.util.IsPrime;
+import IsPrimeThreadPool.util.MyLogger;
 import IsPrimeThreadPool.util.Results;
+import IsPrimeThreadPool.util.MyLogger.DebugLevel;
 
 public class CreateWorker {
 	
@@ -19,21 +21,29 @@ public class CreateWorker {
 	
 	public Results workerProcessor(int NUM_THREADS)
 	{
-		Results finalResult = new Results();
 		ThreadPool ThreadPoolObject = new ThreadPool(NUM_THREADS);
 		ArrayList<Thread> WorkerThreadList = new ArrayList<>();
 		for(int i=0 ; i< NUM_THREADS ; i++)
 		{
 			Thread thread = new Thread(ThreadPoolObject.borrowThread(fp, IsPrimeObject, ResultsObject));
 			WorkerThreadList.add(thread);
+			WorkerThreadList.get(i).start();
 		}
 		
 		for(int i=0 ; i< NUM_THREADS ; i++)
 		{
-			WorkerThreadList.get(i).start();
+			try {
+				WorkerThreadList.get(i).join();
+			} catch (InterruptedException e) {
+				MyLogger.writeMessage(this.getClass().getName() + " : " + e.toString(), DebugLevel.EXCEPTION);
+				System.exit(0);
+			}
+			finally
+			{
+				
+			}
 		}
-		
-		return finalResult;
+		return ResultsObject;
 		
 	}
 	

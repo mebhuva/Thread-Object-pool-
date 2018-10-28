@@ -19,7 +19,7 @@ public class Driver {
 		 * is not given java takes the default value specified in build.xml. To avoid
 		 * that, below condition is used
 		 */
-		if (args.length != 5 || args[0].equals("${arg0}") || args[1].equals("${arg1}") || args[2].equals("${arg2}")) {
+		if (args.length != 3 || args[0].equals("${arg0}") || args[1].equals("${arg1}") || args[2].equals("${arg2}")) {
 
 			System.err.println("Invalid arguments specified");
             System.err.println("Command : ant -buildfile build.xml run -Darg0=input.txt -Darg1=NUM_THREADS -Darg2=DEBUG_LEVEL");
@@ -57,8 +57,8 @@ public class Driver {
 	            IsPrime IsPrimeObject = new IsPrime();
 	            Results ResultsObject = new Results();
 	            CreateWorker CreateWorkerObject = new CreateWorker(fp,IsPrimeObject,ResultsObject);
-	            CreateWorkerObject.workerProcessor(Integer.parseInt(args[1]));
-	            
+	            ResultsObject = CreateWorkerObject.workerProcessor(Integer.parseInt(args[1]));
+	            ResultsObject.writeconsole();
 	            
 			}
 			
