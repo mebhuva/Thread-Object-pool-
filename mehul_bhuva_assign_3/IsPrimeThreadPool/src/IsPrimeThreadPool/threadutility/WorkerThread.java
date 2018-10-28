@@ -39,6 +39,9 @@ public class WorkerThread implements Runnable{
 			{
 				ResultsObject.storeresult(Integer.parseInt(fileLine));
 				MyLogger.writeMessage("Run Method Called : "+ Thread.currentThread().toString() + "Running", DebugLevel.THREADRUN);
+				MyLogger.writeMessage("Result Content Updated .......", DebugLevel.RESULTCONTENTUPDATED);
+				MyLogger.writeMessage("Result Content", DebugLevel.RESULTCONTENT);
+				ResultsObject.writeSumToScreen();
 			}
 			
         }

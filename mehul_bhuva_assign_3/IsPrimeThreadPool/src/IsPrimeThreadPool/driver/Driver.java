@@ -70,16 +70,18 @@ public class Driver {
 				MyLogger.setDebugValue(debug_level);//it sets current debug level
 				IsPrime IsPrimeObject = new IsPrime();
 				StdoutDisplayInterface ResultsObject = new Results();
+				MyLogger.writeMessage("Result Content", DebugLevel.RESULTCONTENT);
+				ResultsObject.writeSumToScreen();
 				CreateWorker CreateWorkerObject = new CreateWorker(fp, IsPrimeObject, ResultsObject);
 
 				try {
 					ResultsObject = CreateWorkerObject.workerProcessor(Integer.parseInt(args[1]));
 				} catch (NumberFormatException e) {
-					// TODO Auto-generated catch block
 					MyLogger.writeMessage(Driver.class.getSimpleName() + " : " + e.toString(), DebugLevel.EXCEPTION);
 				} finally {
 
 				}
+				MyLogger.writeMessage("Result Content", DebugLevel.RESULTCONTENT);
 				ResultsObject.writeSumToScreen();
 
 			}

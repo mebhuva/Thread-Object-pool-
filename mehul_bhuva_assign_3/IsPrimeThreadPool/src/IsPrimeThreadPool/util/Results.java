@@ -26,7 +26,7 @@ public class Results implements StdoutDisplayInterface{
 			for (Integer resultObject : ResultList) {
 				sum += resultObject;
 			}
-			System.out.println(sum);
+			System.out.println("The sum of all the prime numbers is: "+sum);
 		} catch (Exception e) {
 			MyLogger.writeMessage(this.getClass().getName() + " : " + e.toString(), DebugLevel.EXCEPTION);
 			System.exit(0);

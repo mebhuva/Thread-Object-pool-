@@ -34,12 +34,27 @@ Note: Arguments accept the absolute path of the files.
 -----------------------------------------------------------------------
 ## Description:
 
+Flow of the project:-
+
+1. Driver class have main method which is the entry point accepts three arguments input file , number of threads and debug value
+2. All the argument validated after that we create object of class fileprocessor, isprime and result
+3. Then we pass this object to the create worker class which create instance of thread pool , sets thread pool to number of threads using workerprocessor function of create thread
+4. Then worker thread start and join thread
+5. Worker threads calculates prime number and store it in the result
+6. Result object return to the driver code
+7. driver displays result using retrun reult object and call writeconsole 
 
 
 
 
+Data Structure: -
 
-Time complexity :- O() 
+Thread List created using ArrayList<Thread>
+Result List created using ArrayList<Integer>
+Thread implemented using Runnable Interface
+
+
+Time complexity :- O(n logn) 
 
 -----------------------------------------------------------------------
 ### Academic Honesty statement:
