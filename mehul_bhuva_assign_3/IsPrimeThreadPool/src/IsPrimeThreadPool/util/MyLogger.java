@@ -1,5 +1,10 @@
 package IsPrimeThreadPool.util;
 
+/**
+ * MyLogger gives debug level
+ * @author Mehul
+ *
+ */
 public class MyLogger {
 	// FIXME: Add more enum values as needed for the assignment
 	public static enum DebugLevel {
@@ -9,6 +14,10 @@ public class MyLogger {
 	private static DebugLevel debugLevel;
 
 	// FIXME: Add switch cases for all the levels
+	/**
+	 * setDebugValue sets debug level
+	 * @param levelIn
+	 */
 	public static void setDebugValue(int levelIn) {
 		switch (levelIn) {
 		case 5:
@@ -32,10 +41,19 @@ public class MyLogger {
 		}
 	}
 
+	/**
+	 * set current debug level
+	 * @param levelIn
+	 */
 	public static void setDebugValue(DebugLevel levelIn) {
 		debugLevel = levelIn;
 	}
 
+	/**
+	 * To display message
+	 * @param message
+	 * @param levelIn
+	 */
 	public static void writeMessage(String message, DebugLevel levelIn) {
 		if (levelIn == debugLevel)
 			System.out.println(message);

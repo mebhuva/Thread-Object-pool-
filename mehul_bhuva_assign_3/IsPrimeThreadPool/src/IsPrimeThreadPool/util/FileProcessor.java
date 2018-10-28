@@ -24,7 +24,7 @@ public class FileProcessor {
 	 * 
 	 */
 	public FileProcessor() {
-		// TODO Auto-generated constructor stub
+		MyLogger.writeMessage(this.getClass().getName() + " Default Constructor is called ", DebugLevel.CONSTRUCTOR);
 	}
 	/**
 	 * Constructor used to initialize input file object
@@ -88,6 +88,35 @@ public class FileProcessor {
 		} finally {
 
 		}
+	}
+	@Override
+	public String toString() {
+		return "FileProcessor [input=" + input + ", Bfreader=" + Bfreader + ", fileInputExists()=" + fileInputExists()
+				+ ", readLine()=" + readLine() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((input == null) ? 0 : input.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		FileProcessor other = (FileProcessor) obj;
+		if (input == null) {
+			if (other.input != null)
+				return false;
+		} else if (!input.equals(other.input))
+			return false;
+		return true;
 	}
 
 }
